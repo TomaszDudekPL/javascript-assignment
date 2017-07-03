@@ -30,3 +30,28 @@ Create a spy that keeps track of how many times a function is called.
   * Functions have context, input and output. Make sure you consider the context, input to *and output from* the function you are spying on.
 
 */
+
+
+function Spy(object, methodName) {
+  var result = {
+    count: 0
+  }
+
+  var oldMethod = object[methodName]
+  var newMethod = function () {
+    result.count += 1;
+    return oldMethod.apply(this, arguments)
+  }
+
+  object[methodName] = newMethod
+
+  return result
+}
+
+var spy = Spy(console, 'error')
+
+console.error('calling console.error')
+console.error('calling console.error')
+console.error('calling console.error')
+
+console.log(spy.count) // 3

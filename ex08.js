@@ -81,3 +81,13 @@ Also contrast apply with Function.prototype.call:
     add.call(null, 10, 20) // => 30
 
 */
+
+function logger(prefix) {
+  return function() {
+    console.log.apply(null, [prefix].concat(Array.prototype.slice.apply(arguments)))
+  }
+}
+
+var info = logger('INFO:')
+info('this is an info message')
+info('this is an info message', 'wat')

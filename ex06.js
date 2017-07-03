@@ -33,3 +33,27 @@ You only need to check that the ids match.
 
 Tip: you can use array#some and Array#every or _.includes
 */
+
+var goodUsers = [
+  { id: 1 },
+  { id: 2 },
+  { id: 3 }
+]
+
+const checkUsersValid = goodUserDefinitions => usersToCheck => usersToCheck.every(
+  user => goodUserDefinitions.some( definition => user.id === definition.id)
+);
+
+var testAllValid = checkUsersValid(goodUsers)
+
+console.log(
+  testAllValid([
+    { id: 2 },
+    { id: 1 }
+  ]),
+  testAllValid([
+    { id: 2 },
+    { id: 4 },
+    { id: 1 }
+  ])
+)

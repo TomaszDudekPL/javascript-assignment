@@ -15,3 +15,16 @@ Example
     // }
 
 */
+
+
+const countWords = inputWords => inputWords.reduce(
+  function (report, nextWord) {
+    report[nextWord] = (report[nextWord] || 0) + 1;
+    return report
+  },
+  {}
+);
+
+var inputWords = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian']
+
+console.log(countWords(inputWords))

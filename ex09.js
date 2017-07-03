@@ -27,3 +27,10 @@ Conditions
   * Use Function#bind
 
 */
+
+function logger(prefix) {
+  return console.log.bind(null, prefix)
+}
+
+var warn = logger('WARN:')
+warn('this is a warning message', 'with more info')

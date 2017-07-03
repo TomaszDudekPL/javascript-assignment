@@ -19,8 +19,7 @@ var groups = [
 ];
 
 var group = function(groups){
-  /* your code here */
+  return _.partition( groups, 'confirmed' ).map( groupSet => _.chunk( _.map( groupSet,'id'), 2 ))
 }
-
 console.log( group(groups) );
 // [ [ [ 2, 5 ], [ 6, 7 ], [ 8 ] ], [ [ 1, 3 ], [ 4 ] ] ]
