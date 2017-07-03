@@ -17,6 +17,6 @@ The function should return an array containing the messages themselves, without 
 
 */
 
-function getShortMessages(){
+function getShortMessages(arr){
   return _.map(arr, 'message').filter(x => x.length <50)
 }
